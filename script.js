@@ -5,7 +5,7 @@ class DOM {
     element.addEventListener(nameEvento, handler);
   }
   static validStyle(element){
-    document.querySelector(`${element}`).classList.add('valid')
+    document.querySelector(`${element}`).classList.add('valid')//Añadirle id al input?? o irme al target.style
   }
 }
 
@@ -19,7 +19,7 @@ class Formulario {
       validarNombre: () => {
         let regexNombre = /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/;
         if (regexNombre.test(VALOR)) {
-          console.log("hola closure");
+          console.log(nodo);
           DOM.validStyle(nodo.target)
         }
         else{console.log('noooooooooooowey')}
