@@ -1,79 +1,73 @@
 "use strict";
-
+ 
 class DOM {
   static addEventListener(element, nameEvento, handler) {
     element.addEventListener(nameEvento, handler);
+    
   }
-  static validStyle(element){
-    document.querySelector(`${element}`).classList.add('valid')//Añadirle id al input?? o irme al target.style
+  static validStyle(element) {
+    element.classList.add('valid')
   }
 }
-
+ 
+let _validaciones = {
+  letras: /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/,
+  diaMes: /(0[1-9])|([10-31])/,
+  mes: /(0[1-9])|(1[0-2])/,
+  anio: /\d{4}/
+}
+ 
 class Formulario {
   constructor(inputs) {
     this.inputs = inputs;
   }
-  detectarEntrada(nodo) {
-    const VALOR=nodo.target.value
-    let expresionesRegulares = {
-      validarNombre: () => {
-        let regexNombre = /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/;
-        if (regexNombre.test(VALOR)) {
-          console.log(nodo);
-          DOM.validStyle(nodo.target)
-        }
-        else{console.log('noooooooooooowey')}
-      },
-      validarDia:()=>{
-        let regexDia=/(0[1-9])|([10-31])/
-        if (regexDia.test(VALOR)) {
-          console.log('Día valido')
-        }else{console.log('NEEEEEEEL')}
-      },
-      validarMes:()=>{
-        let regexMes= /(0[1-9])|(1[0-2])/
-        if (regexMes.test(VALOR)) {
-          console.log("hola closure");
-        }
-        else{console.log('noooooooooooowey')}
-      },
-      validarAnio:()=>{
-        let regexAnio=/\d{4}/
-        if (regexAnio.test(VALOR)) {
-          console.log('El año es '+VALOR)
-        }else{console.log('Nel prro')}
+  validar = (VALOR, nodo) => {
+    return (validacion) => {  
+      if (validacion.test(VALOR)) {
+        DOM.validStyle(nodo)
+      } else {
+        console.log('no valido')
       }
-    };
+    }
+  }
+  detectarEntrada(nodo) {
+    console.log(this)
+    const VALOR = nodo.target.value
+    const NODO = nodo.target
+    const {diaMes, mes, anio, letras} = _validaciones;
     switch (nodo.target.placeholder) {
       case "nombre":
-        expresionesRegulares.validarNombre();
+        console.log('El nombre es', this);
+        this.validar(VALOR, NODO)(letras);
         break;
       case "segundo nombre":
-        expresionesRegulares.validarNombre();
+        this.validar(VALOR, NODO)(letras);
         break;
       case "apellido paterno":
-        expresionesRegulares.validarNombre();
+        this.validar(VALOR, NODO)(letras);
         break;
       case "apellido materno":
-        expresionesRegulares.validarNombre();
+        this.validar(VALOR, NODO)(letras);
         break;
       case "dia de nacimiento":
-        expresionesRegulares.validarDia();
+        this.validar(VALOR, NODO)(diaMes);
         break;
       case "mes de nacimiento":
-        expresionesRegulares.validarMes();
+        this.validar(VALOR, NODO)(mes);
         break;
       case "año de nacimiento":
-        expresionesRegulares.validarAnio();
+        this.validar(VALOR, NODO)(anio);
         break;
     }
   }
   iniciar() {
-    this.inputs.forEach((input) => {
-      DOM.addEventListener(input,'blur',this.detectarEntrada)
-    });
+    this.inputs.forEach(function(input) {
+      console.log(this);
+      console.log(input);
+      DOM.addEventListener(input, 'blur', this.detectarEntrada.bind(this))
+    }.bind(this));
   }
 }
-
+ 
 let formularioUno = new Formulario(document.querySelectorAll("input"));
 formularioUno.iniciar();
