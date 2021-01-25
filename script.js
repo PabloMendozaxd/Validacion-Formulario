@@ -1,34 +1,47 @@
 "use strict";
 
+class DOM {
+  static addEventListener(element, nameEvento, handler) {
+    element.addEventListener(nameEvento, handler);
+  }
+}
+
 class Formulario {
   constructor(inputs) {
     this.inputs = inputs;
   }
-  validarEntrada(nodo) {
-
+  detectarEntrada(nodo) {
     let expresionesRegulares = {
-      nombres: /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/,
+      validarNombre: () => {
+        let regexNombre = /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/;
+        if (regexNombre.test(nodo.target.value)) {
+          console.log("hola closure");
+        }
+        else{console.log('noooooooooooowey')}
+      },
     };
     switch (nodo.target.placeholder) {
       case "nombre":
-        if (expresionesRegulares.nombres.test(nodo.target.value)) {
-          //ESto se va a estar repitiendo, hay que sacarlo
-          console.log("siiiiii");
-        } else {
-          console.log("noporoloooooo");
-          nodo.target.style.border = "8px solid pink";
-        }
+        expresionesRegulares.validarNombre();
+        break;
+      case "segundo nombre":
+        expresionesRegulares.validarNombre();
+        break;
+      case "apellido paterno":
+        expresionesRegulares.validarNombre();
+        break;
+      case "apellido materno":
+        expresionesRegulares.validarNombre();
+        break;
     }
   }
-  iniciar(){
+  iniciar() {
     this.inputs.forEach((input) => {
-      input.addEventListener("blur", this.validarEntrada);
+      DOM.addEventListener(input,'blur',this.detectarEntrada)
+      // input.addEventListener("blur", this.detectarEntrada);
     });
   }
 }
 
-// const inputs = document.querySelectorAll("input");
-
-
-let formularioUno= new Formulario(document.querySelectorAll("input"))
-formularioUno.iniciar()
+let formularioUno = new Formulario(document.querySelectorAll("input"));
+formularioUno.iniciar();
