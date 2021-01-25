@@ -4,7 +4,9 @@ class DOM {
   static addEventListener(element, nameEvento, handler) {
     element.addEventListener(nameEvento, handler);
   }
-
+  static validStyle(element){
+    document.querySelector(`${element}`).classList.add('valid')
+  }
 }
 
 class Formulario {
@@ -18,6 +20,7 @@ class Formulario {
         let regexNombre = /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/;
         if (regexNombre.test(VALOR)) {
           console.log("hola closure");
+          DOM.validStyle(nodo.target)
         }
         else{console.log('noooooooooooowey')}
       },
