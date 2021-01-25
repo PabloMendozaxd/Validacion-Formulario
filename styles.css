@@ -1,0 +1,16 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #E5E5E5;
+}
+
+input {
+    margin: 3% 0;
+    border:1px solid black;
+}
+select{
+    margin: 3% 0;
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+}
