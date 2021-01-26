@@ -1,71 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SEDENA</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <form class="flex">
-        <h1 id="formName"></h1>
-        <input placeholder="nombre" required />
-        <input placeholder="segundo nombre" /> 
-        <input placeholder="apellido paterno" required />
-        <input placeholder="apellido materno" required /> 
-        <input placeholder="dia de nacimiento" />
-        <input placeholder="mes de nacimiento" /> 
-        <input placeholder="año de nacimiento" /> 
-        <select id="estado">
-            <option value="AS">AGUASCALIENTES-AS</option>
-            <option value="BC">BAJA CALIFORNIA-BC</option>
-            <option value="BS">BAJA CALIFORNIA-SUR-BS</option>
-            <option value="CC">CAMPECHE-CC</option>
-            <option value="CL">COAHUILA-CL</option>
-            <option value="CM">COLIMA-CM</option>
-            <option value="CS">CHIAPAS-CS</option>
-            <option value="CH">CHIHUAHUA-CH</option>
-            <option value="DF">DISTRITO FEDERAL-DF</option>
-            <option value="DG">DURANGO-DG</option>
-            <option value="GT">GUANAJUATO-GT</option>
-            <option value="GR">GUERRERO-GR</option>
-            <option value="HG">HIDALGO-HG</option>
-            <option value="JC">JALISCO-JC</option>
-            <option value="MC">MÉXICO-MC</option>
-            <option value="MN">MICHOACÁN-MN</option>
-            <option value="MS">MORELOS-MS</option>
-            <option value="NT">NAYARIT-NT</option>
-            <option value="NL">NUEVO LEÓN-NL</option>
-            <option value="OC">OAXACA-OC</option>
-            <option value="PL">PUEBLA-PL</option>
-            <option value="QT">QUERÉTARO-QT</option>
-            <option value="QR">QUINTANA ROO-QR</option>
-            <option value="SP">SAN LUIS POTOSÍ-SP</option>
-            <option value="SL">SINALOA-SL</option>
-            <option value="SR">SONORA-SR</option>
-            <option value="TC">TABASCO-TC</option>
-            <option value="TS">TAMAULIPAS-TS</option>
-            <option value="TL">TLAXCALA-TL</option>
-            <option value="VZ">VERACRUZ-VZ</option>
-            <option value="YN">YUCATÁN-YN</option>
-            <option value="ZS">ZACATECAS-ZS</option>
-            <option value="NE">NACIDO EN EL EXTRANJERO-NE</option>
-        </select>
-        <select id="genero">
-            <option value="H">HOMBRE</option>
-            <option value="M">MUJER</option>
-        </select>
-        <input placeholder="destino" required />
-        <input placeholder="¿eres residente mexicano?" required />
-        <input id="curp" placeholder="RFC" required disabled />
-        <input placeholder="CURP" required disabled />
+      <h1 id="formName"></h1>
+      <input placeholder="nombre" required />
+      <input placeholder="segundo nombre" />
+      <input placeholder="apellido paterno" required />
+      <input placeholder="apellido materno" required />
+      <input placeholder="dia de nacimiento" />
+      <input placeholder="mes de nacimiento" />
+      <input placeholder="año de nacimiento" />
+      <select id="estado">
+        <option value="AS">AGUASCALIENTES-AS</option>
+        <option value="BC">BAJA CALIFORNIA-BC</option>
+        <option value="BS">BAJA CALIFORNIA-SUR-BS</option>
+        <option value="CC">CAMPECHE-CC</option>
+        <option value="CL">COAHUILA-CL</option>
+        <option value="CM">COLIMA-CM</option>
+        <option value="CS">CHIAPAS-CS</option>
+        <option value="CH">CHIHUAHUA-CH</option>
+        <option value="DF">DISTRITO FEDERAL-DF</option>
+        <option value="DG">DURANGO-DG</option>
+        <option value="GT">GUANAJUATO-GT</option>
+        <option value="GR">GUERRERO-GR</option>
+        <option value="HG">HIDALGO-HG</option>
+        <option value="JC">JALISCO-JC</option>
+        <option value="MC">MÉXICO-MC</option>
+        <option value="MN">MICHOACÁN-MN</option>
+        <option value="MS">MORELOS-MS</option>
+        <option value="NT">NAYARIT-NT</option>
+        <option value="NL">NUEVO LEÓN-NL</option>
+        <option value="OC">OAXACA-OC</option>
+        <option value="PL">PUEBLA-PL</option>
+        <option value="QT">QUERÉTARO-QT</option>
+        <option value="QR">QUINTANA ROO-QR</option>
+        <option value="SP">SAN LUIS POTOSÍ-SP</option>
+        <option value="SL">SINALOA-SL</option>
+        <option value="SR">SONORA-SR</option>
+        <option value="TC">TABASCO-TC</option>
+        <option value="TS">TAMAULIPAS-TS</option>
+        <option value="TL">TLAXCALA-TL</option>
+        <option value="VZ">VERACRUZ-VZ</option>
+        <option value="YN">YUCATÁN-YN</option>
+        <option value="ZS">ZACATECAS-ZS</option>
+        <option value="NE">NACIDO EN EL EXTRANJERO-NE</option>
+      </select>
+      <select id="genero">
+        <option value="M">MASCULINO</option>
+        <option value="F">FEMENINO</option>
+      </select>
+      <input placeholder="CURP" required disabled />
 
-
-        <button onclick="submit()">Enviar</button>
+      <button onclick="submit()">Enviar</button>
     </form>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

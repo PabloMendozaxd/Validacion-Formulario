@@ -14,7 +14,9 @@ let _validaciones = {
   letras: /^[A-ZÁÉÍÓÚ][a-záéíóú]{1,20}$/,
   diaMes: /(0[1-9])|([10-31])/,
   mes: /(0[1-9])|(1[0-2])/,
-  anio: /\d{4}/
+  anio: /\d{4}/,
+  primerConsonante:/^[A-Z]\w{0}/,
+  primerVocal:/[aeiou]{1}/
 }
  
 class Formulario {
@@ -60,14 +62,21 @@ class Formulario {
         break;
     }
   }
+  extraerConsonante(){
+    
+  }
   iniciar() {
     this.inputs.forEach(function(input) {
-      console.log(this);
-      console.log(input);
       DOM.addEventListener(input, 'blur', this.detectarEntrada.bind(this))
+      //ejecutar funcion SI hay un valor
     }.bind(this));
+
   }
 }
  
-let formularioUno = new Formulario(document.querySelectorAll("input"));
+let formularioUno = new Formulario(document.querySelectorAll("input,select"));
 formularioUno.iniciar();
+
+
+
+// document.querySelectorAll("select")
